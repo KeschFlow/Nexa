@@ -1,165 +1,1473 @@
 <!doctype html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXA – Creator Growth Systems | Wachsen ohne Risiko</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #FFFFFF;
+      color: #1A1A1A;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-    <title>NEXA – Creator Growth Systems | Wachsen ohne Risiko</title>
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    /* Header with Logo */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10000;
+      border-bottom: 1px solid rgba(142, 45, 226, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background: #080013;
-            color: #fff;
-        }
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-        header {
-            background: #111;
-            padding: 20px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    .logo {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #8E2DE2 0%, #C56CFF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      filter: drop-shadow(0 0 20px rgba(142, 45, 226, 0.4));
+      cursor: pointer;
+      transition: filter 0.3s ease;
+    }
 
-        header .logo {
-            font-size: 22px;
-            font-weight: 800;
-            background: #a855ff;
-        }
+    .logo:hover {
+      filter: drop-shadow(0 0 30px rgba(142, 45, 226, 0.6));
+    }
 
-        header nav a {
-            color: #fff;
-            margin-left: 20px;
-            text-decoration: none;
-            font-weight: 500;
-        }
+    .logo-subtitle {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: #666;
+      text-transform: uppercase;
+      margin-left: 2px;
+    }
 
-        .hero {
-            padding: 160px 20px 100px;
-            text-align: center;
-            background: linear-gradient(180deg, #000, #111);
-        }
+    nav {
+      display: flex;
+      gap: 35px;
+      align-items: center;
+    }
 
-        .hero h1 {
-            font-size: 38px;
-            font-weight: 900;
-        }
+    nav a {
+      text-decoration: none;
+      color: #1A1A1A;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
 
-        .hero p {
-            font-size: 18px;
-            margin-top: 15px;
-            color: #bbb;
-        }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #8E2DE2 0%, #C56CFF 100%);
+      transition: width 0.3s ease;
+    }
 
-        .btn-main {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 15px 30px;
-            background: #a855ff;
-            color: #000;
-            font-weight: 700;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 18px;
-        }
+    nav a:hover {
+      color: #8E2DE2;
+    }
 
-        .section {
-            padding: 80px 20px;
-            text-align: center;
-        }
+    nav a:hover::after {
+      width: 100%;
+    }
 
-        .section h2 {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 25px;
-        }
+    /* Hero Section */
+    .hero {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 160px 5% 120px;
+      background: radial-gradient(ellipse at top, rgba(142, 45, 226, 0.05) 0%, rgba(255, 255, 255, 0) 70%),
+                  linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
+      position: relative;
+      overflow: hidden;
+    }
 
-        .section p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: auto;
-            color: #ccc;
-            line-height: 1.6;
-        }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(197, 108, 255, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 20s ease-in-out infinite;
+    }
 
-        .offer-box {
-            background: #111;
-            border-radius: 12px;
-            padding: 30px;
-            margin-top: 40px;
-            display: inline-block;
-            max-width: 700px;
-            text-align: left;
-        }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(142, 45, 226, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 25s ease-in-out infinite reverse;
+    }
 
-        footer {
-            padding: 40px 20px;
-            text-align: center;
-            background: background: #080013;
-            color: #777;
-            font-size: 14px;
-        }
-    </style>
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(50px, 50px) scale(1.1); }
+    }
 
-</head>
+    .hero-content {
+      max-width: 1000px;
+      position: relative;
+      z-index: 1;
+    }
 
-<body>
+    .hero h1 {
+      font-size: 72px;
+      font-weight: 900;
+      margin: 0 0 25px;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #8E2DE2 0%, #C56CFF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 40px rgba(142, 45, 226, 0.3));
+      animation: fadeInUp 0.8s ease;
+    }
 
-<header>
-    <div class="logo">NEXA</div>
-</header>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-<section class="hero">
-    <h1>Wachstum ohne Risiko.<br> Ohna Tech-Stress.<br> Ohne Marketing-Bullshit.</h1>
-    <p>Ich baue dir dein komplettes Creator-System → bei dir Zuhause.  
-       Du musst nichts können. Du musst nichts vorbereiten. Ich mache alles.</p>
+    .hero-subline {
+      font-size: 24px;
+      color: #555;
+      margin: 0 0 50px;
+      font-weight: 500;
+      animation: fadeInUp 0.8s ease 0.2s backwards;
+    }
 
-    <a href="#angebot" class="btn-main">Zum Angebot</a>
-</section>
+    .cta-buttons {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.4s backwards;
+    }
 
-<section class="section" id="angebot">
-    <h2>Was du bekommst</h2>
+    .btn {
+      padding: 20px 45px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 17px;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      border: none;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
 
-    <div class="offer-box">
-        <p>
-            ✔ Komplette System-Installation bei dir vor Ort  
-            ✔ Persönliche 1:1 Betreuung  
-            ✔ Film-Setup, Kamera, Licht, Sound – ich richte alles ein  
-            ✔ Content-Plan, Posting-System, Automationen  
-            ✔ Monetarisierungs-Blueprint (Affiliate + Digitalprodukte)  
-            ✔ Alles wird direkt für dich eingerichtet – du musst nur reden
-        </p>
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+    }
 
-        <p style="margin-top:25px; font-weight:700; font-size:20px;">
-            Preis: 2.500€ + Reisekosten (Couch reicht)
-        </p>
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
 
-        <a href="#kontakt" class="btn-main" style="margin-top:30px;">Jetzt anfragen</a>
+    .btn-primary {
+      background: linear-gradient(135deg, #8E2DE2 0%, #C56CFF 100%);
+      color: white;
+      box-shadow: 0 15px 40px rgba(142, 45, 226, 0.4);
+      position: relative;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 50px rgba(142, 45, 226, 0.5);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #8E2DE2;
+      border: 3px solid #8E2DE2;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-secondary:hover {
+      background: #8E2DE2;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Section Styling */
+    section {
+      padding: 120px 5%;
+      position: relative;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 56px;
+      font-weight: 900;
+      margin: 0 0 20px;
+      color: #1A1A1A;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 20px;
+      color: #666;
+      margin: 0 auto 70px;
+      max-width: 700px;
+      font-weight: 500;
+    }
+
+    /* Why NEXA Section */
+    .why-nexa {
+      background: white;
+      padding: 100px 5%;
+    }
+
+    .why-nexa-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .why-nexa-text {
+      font-size: 20px;
+      line-height: 1.8;
+      color: #1A1A1A;
+    }
+
+    .why-nexa-text p {
+      margin: 0 0 18px;
+      font-weight: 500;
+    }
+
+    .why-nexa-highlight {
+      font-size: 24px;
+      font-weight: 800;
+      margin: 35px 0 25px !important;
+      background: linear-gradient(135deg, #8E2DE2 0%, #C56CFF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .why-nexa-text strong {
+      font-weight: 900;
+      font-size: 22px;
+      color: #8E2DE2;
+    }
+
+    /* How It Works */
+    .how-it-works {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .step-card {
+      background: white;
+      padding: 45px 35px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #8E2DE2 0%, #C56CFF 100%);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(142, 45, 226, 0.2);
+      border-color: rgba(142, 45, 226, 0.3);
+    }
+
+    .step-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .step-icon {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 25px;
+      background: linear-gradient(135deg, #8E2DE2 0%, #C56CFF 100%);
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      box-shadow: 0 10px 30px rgba(142, 45, 226, 0.35);
+      transition: transform 0.4s ease;
+    }
+
+    .step-card:hover .step-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .step-card h3 {
+      font-size: 26px;
+      font-weight: 800;
+      margin: 0 0 15px;
+      color: #1A1A1A;
+    }
+
+    .step-card p {
+      font-size: 16px;
+      color: #666;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* Services */
+    .services {
+      background: white;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: linear-gradient(135deg, #FAFAFA 0%, #FFFFFF 100%);
+      padding: 40px 30px;
+      border-radius: 20px;
+      border: 2px solid #F0F0F0;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+      background: linear-gradient(135deg, rgba(142, 45, 226, 0.05) 0%, rgba(197, 108, 255, 0.05) 100%);
+      transition: height 0.4s ease;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .service-card:hover {
+      border-color: #C56CFF;
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(142, 45, 226, 0.15);
+    }
+
+    .service-card:hover::after {
+      height: 100%;
+    }
+
+    .service-card h4 {
+      font-size: 22px;
+      font-weight: 800;
+      margin: 0 0 12px;
+      color: #1A1A1A;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card p {
+      font-size: 15px;
+      color: #666;
+      margin: 0;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Target Audience */
+    .target-audience {
+      background: linear-gradient(135deg, #8E2DE2 0%, #C56CFF 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .target-audience::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      animation: rotate 30s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .target-audience .section-title,
+    .target-audience .section-subtitle {
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .audience-tag {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 20px 30px;
+      border-radius: 16px;
+      font-size: 19px;
+      font-weight: 700;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .audience-tag:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.05);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Process */
+    .process {
+      background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
+    }
+
+    .process-timeline {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 30px;
+      bottom: 30px;
+      width: 3px;
+      background: linear-gradient(180deg, #8E2DE2 0%, #C56CFF 100%);
+    }
+
+    .process-step {
+      display: flex;
+      gap: 35px;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .process-number {
+      flex-shrink: 0;
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #8E2DE2 0%, #C56CFF 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 900;
+      box-shadow: 0 10px 30px rgba(142, 45, 226, 0.4);
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-content {
+      flex: 1;
+      padding: 15px 0;
+    }
+
+    .process-content h4 {
+      font-size: 26px;
+      font-weight: 800;
+      margin: 0 0 12px;
+      color: #1A1A1A;
+    }
+
+    .process-content p {
+      font-size: 17px;
+      color: #666;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      background: white;
+    }
+
+    .portfolio-case {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #FAFAFA 0%, #FFFFFF 100%);
+      border-radius: 30px;
+      padding: 60px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      border: 2px solid #F0F0F0;
+    }
+
+    .portfolio-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .portfolio-header h3 {
+      font-size: 36px;
+      font-weight: 900;
+      margin: 0 0 15px;
+      background: linear-gradient(135deg, #8E2DE2 0%, #C56CFF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .portfolio-header p {
+      font-size: 18px;
+      color: #666;
+      margin: 0;
+    }
+
+    .portfolio-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .portfolio-item {
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      text-align: center;
+      border: 2px solid #F0F0F0;
+    }
+
+    .portfolio-stat {
+      font-size: 48px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #8E2DE2 0%, #C56CFF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 0 0 10px;
+    }
+
+    .portfolio-label {
+      font-size: 16px;
+      color: #666;
+      font-weight: 600;
+    }
+
+    .portfolio-video-placeholder {
+      margin-top: 40px;
+      background: linear-gradient(135deg, rgba(142, 45, 226, 0.1) 0%, rgba(197, 108, 255, 0.1) 100%);
+      border-radius: 20px;
+      padding: 80px 40px;
+      text-align: center;
+      border: 2px dashed rgba(142, 45, 226, 0.3);
+    }
+
+    .portfolio-video-placeholder p {
+      font-size: 18px;
+      color: #8E2DE2;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* FAQ */
+    .faq {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%);
+    }
+
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: white;
+      border: 2px solid #F0F0F0;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: #C56CFF;
+      box-shadow: 0 10px 30px rgba(142, 45, 226, 0.1);
+    }
+
+    .faq-question {
+      padding: 30px 35px;
+      font-size: 22px;
+      font-weight: 800;
+      color: #1A1A1A;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .faq-item:hover .faq-question {
+      color: #8E2DE2;
+    }
+
+    .faq-toggle {
+      font-size: 28px;
+      color: #8E2DE2;
+      transition: transform 0.3s ease;
+      font-weight: 300;
+    }
+
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 35px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 400px;
+      padding: 0 35px 30px;
+    }
+
+    .faq-answer p {
+      font-size: 17px;
+      color: #666;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      background: #1A1A1A;
+      color: white;
+      padding: 80px 5% 40px;
+    }
+
+    .footer-content {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand .footer-logo {
+      font-size: 42px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #8E2DE2 0%, #C56CFF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 20px rgba(142, 45, 226, 0.5));
+    }
+
+    .footer-slogan {
+      font-size: 16px;
+      color: #AAA;
+      margin: 15px 0 25px;
+      font-weight: 500;
+    }
+
+    .footer-contact {
+      font-size: 16px;
+      color: #CCC;
+      margin: 10px 0;
+    }
+
+    .footer-contact a {
+      color: #C56CFF;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-contact a:hover {
+      color: #8E2DE2;
+    }
+
+    .footer-section h5 {
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0 0 20px;
+      color: white;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: #AAA;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #C56CFF;
+      padding-left: 5px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      width: 55px;
+      height: 55px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: white;
+      font-size: 24px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .social-link:hover {
+      background: linear-gradient(135deg, #8E2DE2 0%, #C56CFF 100%);
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-bottom {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #888;
+      font-size: 14px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 25px;
+    }
+
+    .footer-legal a {
+      color: #888;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-legal a:hover {
+      color: #C56CFF;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero-subline {
+        font-size: 20px;
+      }
+
+      .section-title {
+        font-size: 40px;
+      }
+
+      .logo {
+        font-size: 32px;
+      }
+
+      nav {
+        gap: 20px;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .process-timeline::before {
+        left: 25px;
+      }
+
+      .portfolio-case {
+        padding: 40px 30px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .why-nexa-text {
+        font-size: 18px;
+      }
+
+      .why-nexa-highlight {
+        font-size: 22px;
+      }
+
+      .why-nexa-text strong {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero-subline {
+        font-size: 18px;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+
+      .logo {
+        font-size: 28px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .why-nexa-text {
+        font-size: 17px;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Header with Logo -->
+  <header>
+   <div class="logo-container">
+    <div class="logo" id="logo-text">
+     NEXA
     </div>
-</section>
+    <div class="logo-subtitle" id="logo-subtitle">
+     CREATOR GROWTH SYSTEMS
+    </div>
+   </div>
+   <nav><a href="#wie">Wie es funktioniert</a> <a href="#leistungen">Leistungen</a> <a href="#portfolio">Portfolio</a> <a href="#faq">FAQ</a>
+   </nav>
+  </header><!-- Hero Section -->
+  <section class="hero">
+   <div class="hero-content">
+    <h1 id="hero-headline">Wachsen ohne Risiko. Zahlen nur bei Erfolg.</h1>
+    <p class="hero-subline" id="hero-subline">Creator-Wachstum mit KI – ohne Startkosten, ohne Risiko.</p>
+    <div class="cta-buttons"><a href="#ablauf" class="btn btn-primary" id="cta-primary">Jetzt kostenlos bewerben</a> <a href="#wie" class="btn btn-secondary" id="cta-secondary">Mehr erfahren</a>
+    </div>
+   </div>
+  </section><!-- Why NEXA is Different -->
+  <section class="why-nexa">
+   <div class="why-nexa-content">
+    <h2 class="section-title">Warum NEXA anders ist</h2>
+    <div class="why-nexa-text">
+     <p>Viele Agenturen labern – wir liefern.</p>
+     <p>Kein Bullshit-Business, keine Versprechen aus der Hölle.</p>
+     <p>Bei NEXA kriegst du echte Arbeit, echte Zahlen, echte Ergebnisse.</p>
+     <p>Ich rede nicht hochgestochen, ich rede normal – so wie du auch.</p>
+     <p>Ich spiele niemanden.</p>
+     <p>Ich zieh niemanden ab.</p>
+     <p>Ich baue Creatorinnen so auf, wie ich's selbst fühlen würde: ehrlich, direkt und loyal.</p>
+     <p class="why-nexa-highlight">Und genau deshalb funktioniert NEXA:</p>
+     <p>Wer mit uns arbeitet, weiß sofort, woran sie ist – kein Risiko, keine Vorkasse, nur Leistung.</p>
+     <p><strong>Du verdienst → wir verdienen.</strong></p>
+     <p>Keine Ausreden, kein Drama.</p>
+    </div>
+   </div>
+  </section><!-- How It Works -->
+  <section id="wie" class="how-it-works">
+   <h2 class="section-title">Wie NEXA funktioniert</h2>
+   <p class="section-subtitle">Unser Performance-Modell: Du gehst kein Risiko ein – wir wachsen gemeinsam.</p>
+   <div class="steps-grid">
+    <div class="step-card">
+     <div class="step-icon">
+      💎
+     </div>
+     <h3>0 € Startkosten</h3>
+     <p>Keine Vorabzahlung, keine versteckten Gebühren. Du startest komplett risikofrei mit uns durch.</p>
+    </div>
+    <div class="step-card">
+     <div class="step-icon">
+      🤖
+     </div>
+     <h3>KI &amp; Daten-Strategie</h3>
+     <p>Wir nutzen KI-gestützte Analysen und Daten, um deine Content-Performance zu maximieren und viral zu gehen.</p>
+    </div>
+    <div class="step-card">
+     <div class="step-icon">
+      💰
+     </div>
+     <h3>Zahlung bei Erfolg</h3>
+     <p>30–40% Revenue Share nur bei echten Einnahmen. Kein Umsatz? Keine Kosten für dich.</p>
+    </div>
+   </div>
+  </section><!-- Services -->
+  <section id="leistungen" class="services">
+   <h2 class="section-title">Full-Service Creator Growth</h2>
+   <p class="section-subtitle">Alles, was du brauchst, um als Creatorin durchzustarten – aus einer Hand.</p>
+   <div class="services-grid">
+    <div class="service-card">
+     <h4>💡 Video-Ideen</h4>
+     <p>Virale Content-Konzepte, die deine Zielgruppe lieben und teilen werden.</p>
+    </div>
+    <div class="service-card">
+     <h4>🎬 Hooks &amp; Skripte</h4>
+     <p>Perfekte erste 3 Sekunden und packende Storys für maximale Watchtime.</p>
+    </div>
+    <div class="service-card">
+     <h4>📺 Serien-Formate</h4>
+     <p>Wiederkehrende Formate, die deine Community binden und zum Wiederkommen bringen.</p>
+    </div>
+    <div class="service-card">
+     <h4>🛍️ TikTok Shop Setup</h4>
+     <p>Aufbau und Optimierung deines TikTok Shops für maximale Conversions.</p>
+    </div>
+    <div class="service-card">
+     <h4>💸 Monetarisierung</h4>
+     <p>Brand Deals, Affiliate-Marketing, digitale Produkte – wir erschließen alle Einnahmequellen.</p>
+    </div>
+    <div class="service-card">
+     <h4>📊 Analyse &amp; Optimierung</h4>
+     <p>Datenbasierte Performance-Analysen und kontinuierliche Strategieanpassungen.</p>
+    </div>
+    <div class="service-card">
+     <h4>🚀 Full-Service Growth</h4>
+     <p>Von der Strategie bis zur Umsetzung – wir kümmern uns um dein komplettes Creator-Wachstum.</p>
+    </div>
+   </div>
+  </section><!-- Target Audience -->
+  <section class="target-audience">
+   <h2 class="section-title">Perfekt für dich als</h2>
+   <p class="section-subtitle">NEXA unterstützt Creatorinnen auf allen Levels – vom Start bis zum Scale.</p>
+   <div class="audience-grid">
+    <div class="audience-tag">
+     🎵 TikTok-Creatorin
+    </div>
+    <div class="audience-tag">
+     📸 IG-Model
+    </div>
+    <div class="audience-tag">
+     🎭 Cosplayerin
+    </div>
+    <div class="audience-tag">
+     💄 Beauty-Creator
+    </div>
+    <div class="audience-tag">
+     💪 Fitness-Influencerin
+    </div>
+    <div class="audience-tag">
+     ✨ Lifestyle-Creator
+    </div>
+    <div class="audience-tag">
+     🌟 Anfängerin
+    </div>
+    <div class="audience-tag">
+     🚀 Wachstums-Creator
+    </div>
+   </div>
+  </section><!-- Process -->
+  <section id="ablauf" class="process">
+   <h2 class="section-title">So läuft die Zusammenarbeit</h2>
+   <p class="section-subtitle">In 4 einfachen Schritten zur erfolgreichen Creator-Karriere.</p>
+   <div class="process-timeline">
+    <div class="process-step">
+     <div class="process-number">
+      1
+     </div>
+     <div class="process-content">
+      <h4>Kostenlose Bewerbung</h4>
+      <p>Fülle unser Bewerbungsformular aus – dauert nur 2 Minuten. Wir melden uns innerhalb von 24 Stunden.</p>
+     </div>
+    </div>
+    <div class="process-step">
+     <div class="process-number">
+      2
+     </div>
+     <div class="process-content">
+      <h4>Strategie-Call</h4>
+      <p>Wir lernen uns kennen, analysieren dein Potenzial und entwickeln gemeinsam deine individuelle Wachstumsstrategie.</p>
+     </div>
+    </div>
+    <div class="process-step">
+     <div class="process-number">
+      3
+     </div>
+     <div class="process-content">
+      <h4>30-Tage-Testphase</h4>
+      <p>Wir arbeiten 30 Tage zusammen – komplett gratis. Du siehst erste Ergebnisse ohne jedes Risiko.</p>
+     </div>
+    </div>
+    <div class="process-step">
+     <div class="process-number">
+      4
+     </div>
+     <div class="process-content">
+      <h4>Performance-Modell</h4>
+      <p>Bei Erfolg gehen wir ins Revenue-Share-Modell. Du verdienst, wir verdienen. Fair, transparent, erfolgsorientiert.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Portfolio -->
+  <section id="portfolio" class="portfolio">
+   <h2 class="section-title">Erfolgsgeschichten</h2>
+   <p class="section-subtitle">Echte Ergebnisse von echten Creatorinnen.</p>
+   <div class="portfolio-case">
+    <div class="portfolio-header">
+     <h3 id="portfolio-title">Eddie &amp; Cashflow – Creator Growth Case</h3>
+     <p>Von 0 auf 100k Follower in 90 Tagen – mit datenbasierter Strategie und KI-optimiertem Content.</p>
+    </div>
+    <div class="portfolio-content">
+     <div class="portfolio-item">
+      <div class="portfolio-stat">
+       127K
+      </div>
+      <div class="portfolio-label">
+       Follower-Wachstum
+      </div>
+     </div>
+     <div class="portfolio-item">
+      <div class="portfolio-stat">
+       15M
+      </div>
+      <div class="portfolio-label">
+       Video-Views
+      </div>
+     </div>
+     <div class="portfolio-item">
+      <div class="portfolio-stat">
+       €42K
+      </div>
+      <div class="portfolio-label">
+       Monatlicher Umsatz
+      </div>
+     </div>
+    </div>
+    <div class="portfolio-video-placeholder">
+     <p>📹 Video-Portfolio &amp; Case Study Details</p>
+    </div>
+   </div>
+  </section><!-- FAQ -->
+  <section id="faq" class="faq">
+   <h2 class="section-title">Häufige Fragen</h2>
+   <p class="section-subtitle">Alles, was du über die Zusammenarbeit mit NEXA wissen musst.</p>
+   <div class="faq-container">
+    <div class="faq-item">
+     <div class="faq-question">
+      Muss ich vorher etwas bezahlen? <span class="faq-toggle">+</span>
+     </div>
+     <div class="faq-answer">
+      <p>Nein, absolut nicht! NEXA arbeitet komplett ohne Vorabkosten. Du gehst kein finanzielles Risiko ein. Wir verdienen nur, wenn du verdienst – durch unser Performance-basiertes Revenue-Share-Modell.</p>
+     </div>
+    </div>
+    <div class="faq-item">
+     <div class="faq-question">
+      Was passiert, wenn ich nichts verdiene? <span class="faq-toggle">+</span>
+     </div>
+     <div class="faq-answer">
+      <p>Dann zahlst du auch nichts. Unser Performance-Modell bedeutet: Keine Einnahmen = keine Zahlung an uns. Wir tragen das Risiko gemeinsam mit dir und sind nur erfolgreich, wenn du es auch bist.</p>
+     </div>
+    </div>
+    <div class="faq-item">
+     <div class="faq-question">
+      Wie schnell sehe ich erste Resultate? <span class="faq-toggle">+</span>
+     </div>
+     <div class="faq-answer">
+      <p>Die meisten unserer Creatorinnen sehen erste spürbare Ergebnisse innerhalb der ersten 30 Tage. Nachhaltiges Wachstum und signifikante Umsätze entwickeln sich typischerweise nach 60-90 Tagen konsequenter Zusammenarbeit.</p>
+     </div>
+    </div>
+    <div class="faq-item">
+     <div class="faq-question">
+      Ist NEXA wirklich seriös? <span class="faq-toggle">+</span>
+     </div>
+     <div class="faq-answer">
+      <p>Ja, absolut! NEXA ist eine professionelle Creator-Agentur mit nachweisbaren Erfolgsgeschichten und echten Case Studies. Unser gesamtes Geschäftsmodell basiert darauf, dass du erfolgreich wirst – deshalb investieren wir alles in dein Wachstum.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer>
+   <div class="footer-content">
+    <div class="footer-brand">
+     <div class="footer-logo" id="footer-logo">
+      NEXA
+     </div>
+     <p class="footer-slogan" id="footer-slogan">Wachsen ohne Risiko – Zahlen nur bei Erfolg</p>
+     <div class="footer-contact">
+      Kontakt: <a href="#" id="contact-email">kontakt@nexa-agency.de</a>
+     </div>
+     <div class="social-links"><a href="#" class="social-link" target="_blank" rel="noopener noreferrer" title="TikTok">🎵</a> <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" title="Instagram">📷</a> <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" title="Email">📧</a>
+     </div>
+    </div>
+    <div class="footer-section">
+     <h5>Services</h5>
+     <div class="footer-links"><a href="#leistungen">Video-Ideen</a> <a href="#leistungen">Content-Strategie</a> <a href="#leistungen">TikTok Shop</a> <a href="#leistungen">Monetarisierung</a>
+     </div>
+    </div>
+    <div class="footer-section">
+     <h5>Über NEXA</h5>
+     <div class="footer-links"><a href="#wie">Wie es funktioniert</a> <a href="#ablauf">Bewerbung</a> <a href="#portfolio">Erfolgsgeschichten</a> <a href="#faq">FAQ</a>
+     </div>
+    </div>
+   </div>
+   <div class="footer-bottom">
+    <div>
+     © 2024 NEXA Creator Growth Systems. Alle Rechte vorbehalten.
+    </div>
+    <div class="footer-legal"><a href="#">Impressum</a> <a href="#">Datenschutz</a> <a href="#">AGB</a>
+    </div>
+   </div>
+  </footer>
+  <script>
+    const defaultConfig = {
+      logo_text: "NEXA",
+      logo_subtitle: "CREATOR GROWTH SYSTEMS",
+      hero_headline: "Wachsen ohne Risiko. Zahlen nur bei Erfolg.",
+      hero_subline: "Creator-Wachstum mit KI – ohne Startkosten, ohne Risiko.",
+      cta_primary: "Jetzt kostenlos bewerben",
+      cta_secondary: "Mehr erfahren",
+      portfolio_title: "Eddie & Cashflow – Creator Growth Case",
+      footer_slogan: "Wachsen ohne Risiko – Zahlen nur bei Erfolg",
+      contact_email: "kontakt@nexa-agency.de",
+      primary_color: "#8E2DE2",
+      accent_color: "#C56CFF",
+      background_color: "#FFFFFF",
+      text_color: "#1A1A1A",
+      surface_color: "#FAFAFA",
+      font_family: "Montserrat",
+      font_size: 16
+    };
 
-<section class="section" id="kontakt">
-    <h2>Kontakt</h2>
-    <p>Schreib mir einfach auf Instagram: <br><br>
-       <strong>@keschflow</strong>
-    </p>
+    async function onConfigChange(config) {
+      const logoText = config.logo_text || defaultConfig.logo_text;
+      const logoSubtitle = config.logo_subtitle || defaultConfig.logo_subtitle;
+      const heroHeadline = config.hero_headline || defaultConfig.hero_headline;
+      const heroSubline = config.hero_subline || defaultConfig.hero_subline;
+      const ctaPrimary = config.cta_primary || defaultConfig.cta_primary;
+      const ctaSecondary = config.cta_secondary || defaultConfig.cta_secondary;
+      const portfolioTitle = config.portfolio_title || defaultConfig.portfolio_title;
+      const footerSlogan = config.footer_slogan || defaultConfig.footer_slogan;
+      const contactEmail = config.contact_email || defaultConfig.contact_email;
+      const primaryColor = config.primary_color || defaultConfig.primary_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseSize = config.font_size || defaultConfig.font_size;
 
-    <a href="https://instagram.com/keschflow" target="_blank" class="btn-main">DM senden</a>
-</section>
+      document.getElementById('logo-text').textContent = logoText;
+      document.getElementById('logo-subtitle').textContent = logoSubtitle;
+      document.getElementById('hero-headline').textContent = heroHeadline;
+      document.getElementById('hero-subline').textContent = heroSubline;
+      document.getElementById('cta-primary').textContent = ctaPrimary;
+      document.getElementById('cta-secondary').textContent = ctaSecondary;
+      document.getElementById('portfolio-title').textContent = portfolioTitle;
+      document.getElementById('footer-slogan').textContent = footerSlogan;
+      document.getElementById('contact-email').textContent = contactEmail;
+      document.getElementById('footer-logo').textContent = logoText;
 
-<footer>
-    © 2025 NEXA – Creator Growth Systems. Alle Rechte vorbehalten.
-</footer>
+      document.body.style.backgroundColor = backgroundColor;
+      document.body.style.color = textColor;
 
-</body>
+      const baseFontStack = '-apple-system, BlinkMacSystemFont, sans-serif';
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+      const gradients = document.querySelectorAll('.logo, .footer-logo, .hero h1, .portfolio-header h3, .portfolio-stat');
+      gradients.forEach(el => {
+        el.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 100%)`;
+        el.style.webkitBackgroundClip = 'text';
+        el.style.webkitTextFillColor = 'transparent';
+        el.style.backgroundClip = 'text';
+      });
+
+      const surfaces = document.querySelectorAll('.how-it-works, .process, .faq');
+      surfaces.forEach(el => {
+        el.style.background = `linear-gradient(180deg, ${surfaceColor} 0%, ${backgroundColor} 100%)`;
+      });
+
+      const audienceSection = document.querySelector('.target-audience');
+      if (audienceSection) {
+        audienceSection.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 100%)`;
+      }
+
+      const buttons = document.querySelectorAll('.btn-primary, .step-icon, .process-number');
+      buttons.forEach(btn => {
+        btn.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 100%)`;
+      });
+
+      const secondaryButtons = document.querySelectorAll('.btn-secondary');
+      secondaryButtons.forEach(btn => {
+        btn.style.color = primaryColor;
+        btn.style.borderColor = primaryColor;
+      });
+
+      const socialHovers = document.querySelectorAll('.social-link');
+      socialHovers.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+          link.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 100%)`;
+        });
+        link.addEventListener('mouseleave', () => {
+          link.style.background = 'rgba(255, 255, 255, 0.08)';
+        });
+      });
+
+      document.querySelectorAll('h1').forEach(el => el.style.fontSize = `${baseSize * 4.5}px`);
+      document.querySelectorAll('h2').forEach(el => el.style.fontSize = `${baseSize * 3.5}px`);
+      document.querySelectorAll('h3').forEach(el => el.style.fontSize = `${baseSize * 1.625}px`);
+      document.querySelectorAll('h4').forEach(el => el.style.fontSize = `${baseSize * 1.375}px`);
+      document.querySelectorAll('p').forEach(el => el.style.fontSize = `${baseSize}px`);
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ primary_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ accent_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["logo_text", config.logo_text || defaultConfig.logo_text],
+        ["logo_subtitle", config.logo_subtitle || defaultConfig.logo_subtitle],
+        ["hero_headline", config.hero_headline || defaultConfig.hero_headline],
+        ["hero_subline", config.hero_subline || defaultConfig.hero_subline],
+        ["cta_primary", config.cta_primary || defaultConfig.cta_primary],
+        ["cta_secondary", config.cta_secondary || defaultConfig.cta_secondary],
+        ["portfolio_title", config.portfolio_title || defaultConfig.portfolio_title],
+        ["footer_slogan", config.footer_slogan || defaultConfig.footer_slogan],
+        ["contact_email", config.contact_email || defaultConfig.contact_email]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // FAQ Accordion functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        const wasActive = item.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item').forEach(faq => {
+          faq.classList.remove('active');
+        });
+        
+        if (!wasActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+        if (target) {
+          const headerOffset = 100;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a2f24e544044504',t:'MTc2Mzg4NDk0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
