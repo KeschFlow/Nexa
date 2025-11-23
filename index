@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEXA – Creator Growth Systems | Wachsen ohne Risiko</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    * , *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* Header */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 18px 5%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(142,45,226,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+
+    .logo-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg,#8e2de2 0%,#c56cff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 15px rgba(142,45,226,0.4));
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #666;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+      position: relative;
+      transition: all .25s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg,#8e2de2 0%,#c56cff 100%);
+      transition: width .25s ease;
+    }
+
+    nav a:hover {
+      color: #8e2de2;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Sections basic */
+
+    section {
+      padding: 120px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 40px;
+      font-weight: 900;
+      text-align: center;
+      margin: 0 0 16px;
+    }
+
+    .section-sub {
+      font-size: 18px;
+      text-align: center;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 150px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(ellipse at top, rgba(142,45,226,0.06) 0%, transparent 60%),
+        linear-gradient(180deg,#fafafa 0%,#ffffff 100%);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 900;
+      margin: 0 0 18px;
+      background: linear-gradient(135deg,#8e2de2 0%,#c56cff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 30px rgba(142,45,226,0.25));
+    }
+
+    .hero-sub {
+      font-size: 20px;
+      color: #555;
+      margin: 0 0 36px;
+      font-weight: 500;
+    }
+
+    .hero-note {
+      font-size: 14px;
+      color: #777;
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 36px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all .3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg,#8e2de2 0%,#c56cff 100%);
+      color: #fff;
+      box-shadow: 0 12px 35px rgba(142,45,226,0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 45px rgba(142,45,226,0.5);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: #8e2de2;
+      border: 2px solid #8e2de2;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .btn-secondary:hover {
+      background: #8e2de2;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    /* Why */
+
+    .why p {
+      margin: 0 0 14px;
+      font-size: 17px;
+    }
+
+    .why-strong {
+      font-weight: 800;
+      font-size: 20px;
+      margin-top: 26px;
+      background: linear-gradient(135deg,#8e2de2 0%,#c56cff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Steps */
+
+    .steps {
+      background: linear-gradient(180deg,#ffffff 0%,#fafafa 100%);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 28px;
+    }
+
+    .step-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 26px;
+      text-align: center;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+      border: 1px solid #eee;
+      transition: all .3s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 45px rgba(142,45,226,0.2);
+      border-color: rgba(142,45,226,0.3);
+    }
+
+    .step-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 22px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      background: linear-gradient(135deg,#8e2de2 0%,#c56cff 100%);
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(142,45,226,0.35);
+    }
+
+    .step-card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: #666;
+      font-size: 15px;
+    }
+
+    /* Services */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      background: linear-gradient(135deg,#fafafa 0%,#ffffff 100%);
+      border-radius: 18px;
+      padding: 24px 22px;
+      border: 1px solid #eee;
+      transition: all .25s ease;
+    }
+
+    .service-card:hover {
+      border-color: #c56cff;
+      box-shadow: 0 14px 36px rgba(142,45,226,0.18);
+      transform: translateY(-4px);
+    }
+
+    .service-card h4 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .service-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Audience */
+
+    .audience {
+      background: linear-gradient(135deg,#8e2de2 0%,#c56cff 100%);
+      color: #fff;
+      border-radius: 28px;
+      padding: 60px 24px;
+    }
+
+    .audience .section-title,
+    .audience .section-sub {
+      color: #fff;
+    }
+
+    .audience-tags {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 18px;
+    }
+
+    .audience-tag {
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.35);
+      font-weight: 600;
+      font-size: 15px;
+      backdrop-filter: blur(6px);
+    }
+
+    /* Process */
+
+    .process-line {
+      border-left: 3px solid #8e2de2;
+      padding-left: 26px;
+      margin-top: 20px;
+    }
+
+    .process-step {
+      margin-bottom: 26px;
+    }
+
+    .process-step-title {
+      font-weight: 800;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .process-step p {
+      margin: 0;
+      font-size: 15px;
+      color: #666;
+    }
+
+    /* FAQ */
+
+    .faq-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-radius: 16px;
+      border: 1px solid #eee;
+      margin-bottom: 14px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+    }
+
+    .faq-q {
+      padding: 18px 20px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-q span {
+      font-size: 22px;
+      color: #8e2de2;
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 20px;
+      font-size: 14px;
+      color: #666;
+      transition: max-height .25s ease, padding .25s ease;
+    }
+
+    .faq-item.active .faq-a {
+      max-height: 240px;
+      padding: 0 20px 16px;
+    }
+
+    /* Contact / Footer */
+
+    .contact-box {
+      text-align: center;
+      border-radius: 22px;
+      padding: 40px 24px;
+      background: linear-gradient(135deg,#8e2de2 0%,#c56cff 100%);
+      color: #fff;
+      box-shadow: 0 16px 45px rgba(142,45,226,0.35);
+    }
+
+    .contact-box p {
+      margin: 0 0 16px;
+    }
+
+    .contact-box a {
+      color: #fff;
+      font-weight: 800;
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 40px 5% 24px;
+      background: #1a1a1a;
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    .footer-top {
+      max-width: 1200px;
+      margin: 0 auto 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 900;
+      background: linear-gradient(135deg,#8e2de2 0%,#c56cff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: #888;
+    }
+
+    .footer-links a:hover {
+      color: #c56cff;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      nav { display: none; }
+      .hero h1 { font-size: 36px; }
+      .hero-sub { font-size: 18px; }
+      section { padding: 90px 5%; }
+    }
+
+    @media (max-width: 600px) {
+      .section-title { font-size: 30px; }
+      .audience { border-radius: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo-wrap">
+      <div class="logo">NEXA</div>
+      <div class="logo-sub">CREATOR GROWTH SYSTEMS</div>
+    </div>
+    <nav>
+      <a href="#wie">Wie es funktioniert</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Wachsen ohne Risiko. Zahlen nur bei Erfolg.</h1>
+      <p class="hero-sub">Creator-Wachstum mit KI, Systemen und Klarheit – ohne Startkosten, ohne Tech-Stress.</p>
+      <p class="hero-note">
+        Du brauchst keine Ahnung von Algorithmen, Funnels oder Ads zu haben.  
+        Ich baue die Systeme – du bringst Persönlichkeit vor die Kamera.
+      </p>
+      <div class="cta-row">
+        <a href="#ablauf" class="btn btn-primary">Jetzt unverbindlich anfragen</a>
+        <a href="#wie" class="btn btn-secondary">Wie das genau läuft</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why">
+    <h2 class="section-title">Warum NEXA anders tickt</h2>
+    <p class="section-sub">Keine Agentur-Floskeln. Kein Bullshit. Klare Deals, klare Zahlen, klare Verantwortung.</p>
+
+    <div>
+      <p>Ich rede mit dir wie mit einem Menschen – nicht wie mit einer KPI-Maschine.</p>
+      <p>Ich verspreche dir keine Lambos, sondern strukturierte Arbeit und ehrliche Kommunikation.</p>
+      <p>Kein Vor-Ort-Aufbau, keine „Ich penne bei dir auf der Couch“-Romantik. Alles läuft remote, sauber und professionell.</p>
+      <p>Wenn du technisch komplett lost bist, kann ich dir optional beim Setup helfen – aber das ist kein Hauptangebot, sondern einfach menschlich.</p>
+      <p class="why-strong">Wichtig ist nur eins: Wenn du verdienst, verdiene ich mit. Wenn du nichts verdienst, zahlst du nichts.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="wie" class="steps">
+    <h2 class="section-title">Wie das Modell funktioniert</h2>
+    <p class="section-sub">Performance-basiert. Fair. Transparent. Kein Risiko für dich, maximale Motivation für mich.</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-icon">💎</div>
+        <h3>0 € Startkosten</h3>
+        <p>Kein Einstiegspreis, keine Setup-Fee, keine versteckten Kosten. Wir starten, ohne dass du in Vorleistung gehst.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-icon">🤖</div>
+        <h3>KI &amp; Systeme</h3>
+        <p>Content-Strategie, Hooks, Serien-Formate und Automationen – gebaut mit KI-Unterstützung und Daten, nicht nach Gefühl.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-icon">💰</div>
+        <h3>Revenue-Share</h3>
+        <p>Ich verdiene nur an echten Umsätzen mit. Kein Umsatz = keine Zahlung. Deal auf Augenhöhe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="leistungen">
+    <h2 class="section-title">Was ich für dich übernehme</h2>
+    <p class="section-sub">Alles, was du brauchst, um als Creatorin sichtbar, konstant und monetarisierbar zu werden.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <h4>💡 Content-Strategie</h4>
+        <p>Positionierung, Themen-Cluster, Formate – damit die Leute sofort checken, wofür du stehst.</p>
+      </div>
+      <div class="service-card">
+        <h4>🎬 Hooks &amp; Skripte</h4>
+        <p>Die ersten 3 Sekunden, Storyline und Call-to-Action – ready zum Aufnehmen mit deinem Handy.</p>
+      </div>
+      <div class="service-card">
+        <h4>📺 Serien-Formate</h4>
+        <p>Wiederkehrende Formate, die wie eine Serie funktionieren und deine Community binden.</p>
+      </div>
+      <div class="service-card">
+        <h4>📊 Analyse &amp; Optimierung</h4>
+        <p>Ich checke die Zahlen, teste Varianten und optimiere – du siehst klare Auswertungen statt Bauchgefühl.</p>
+      </div>
+      <div class="service-card">
+        <h4>💸 Monetarisierung</h4>
+        <p>Affiliate, Brand-Deals, digitale Produkte oder andere Modelle – was zu dir passt, wird aufgebaut.</p>
+      </div>
+      <div class="service-card">
+        <h4>🧠 System statt Chaos</h4>
+        <p>Struktur für Content-Plan, Prozesse und Automationen, damit du nicht jeden Tag bei Null anfängst.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section>
+    <div class="audience">
+      <h2 class="section-title">Für wen NEXA gedacht ist</h2>
+      <p class="section-sub">Du musst kein Pro sein – aber du musst Bock haben, dich vor der Kamera zu zeigen.</p>
+
+      <div class="audience-tags">
+        <div class="audience-tag">🎵 TikTok-Creatorin</div>
+        <div class="audience-tag">📸 Instagram-Creatorin</div>
+        <div class="audience-tag">🎭 Cosplayerin / Character-Content</div>
+        <div class="audience-tag">💄 Beauty &amp; Lifestyle</div>
+        <div class="audience-tag">💪 Fitness &amp; Coaching</div>
+        <div class="audience-tag">✨ Einsteigerin mit Potenzial</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="ablauf">
+    <h2 class="section-title">So läuft die Zusammenarbeit</h2>
+    <p class="section-sub">Ein klarer, überschaubarer Prozess – ohne Druck, ohne Sales-Theater.</p>
+
+    <div class="process-line">
+      <div class="process-step">
+        <div class="process-step-title">1. Kurze Anfrage</div>
+        <p>Du schreibst mir kurz, wer du bist und was du machst. Kein Roman, einfach ehrlich.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-title">2. Kennenlern-Call</div>
+        <p>Wir checken gemeinsam, ob das überhaupt Sinn ergibt – menschlich und vom Potenzial her.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-title">3. Testphase</div>
+        <p>Wir testen für einen überschaubaren Zeitraum die Zusammenarbeit. Du siehst, wie ich arbeite, ich sehe, wie du umsetzt.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-title">4. Performance-Deal</div>
+        <p>Wenn es für beide passt, gehen wir in ein faires Revenue-Share-Modell. Transparent geregelt, schwarz auf weiß.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <h2 class="section-title">Häufige Fragen</h2>
+    <p class="section-sub">Das Wichtigste kurz beantwortet.</p>
+
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>0 € Startkosten – wirklich?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-a">
+          Ja. Es gibt keine Setup-Gebühr und keinen Paketpreis im Voraus. Verdienen wir nichts zusammen, zahlst du auch nichts.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>Muss ich schon Reichweite haben?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-a">
+          Nein, aber du musst bereit sein, regelmäßig Content aufzunehmen und wirklich Gas zu geben. Ohne Commitment bringt das System nichts.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>Machst du auch Technik-Setup?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-a">
+          Der Fokus liegt auf Strategie, System und Wachstum. Wenn du technisch komplett lost bist, helfe ich dir remote beim Setup –
+          aber ich reise nicht an und baue vor Ort Studios auf.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>Gibt es schon Case-Studies?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-a">
+          NEXA ist ein ehrliches Performance-Modell im Aufbau. Statt dir Fake-Zahlen hinzuknallen, starten wir mit dir transparent in
+          die ersten Projekte – und nutzen deine Ergebnisse später als echte Case-Study.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="kontakt">
+    <div class="contact-box">
+      <h2 class="section-title" style="color:#fff;margin-bottom:10px;">Bereit, das seriös zu testen?</h2>
+      <p>Wenn du dich in der Beschreibung wiedererkennst, schreib mir eine DM auf Instagram.</p>
+      <p><strong>Handle:</strong> <a href="https://instagram.com/keschflow" target="_blank">@keschflow</a></p>
+      <a href="https://instagram.com/keschflow" target="_blank" class="btn btn-secondary" style="border-color:#fff;">DM jetzt senden</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-logo">NEXA</div>
+      <div>Wachsen ohne Risiko – zahlen nur bei Erfolg.</div>
+      <div class="footer-links">
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:0 auto;color:#777;">
+      © 2025 NEXA – Creator Growth Systems. Alle Rechte vorbehalten.
+    </div>
+  </footer>
+
+  <script>
+    // FAQ Toggle
+    document.querySelectorAll('.faq-q').forEach(function (q) {
+      q.addEventListener('click', function () {
+        var item = q.parentElement;
+        var active = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(function (i) {
+          i.classList.remove('active');
+        });
+        if (!active) item.classList.add('active');
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var id = link.getAttribute('href');
+        if (id.length > 1) {
+          e.preventDefault();
+          var target = document.querySelector(id);
+          if (!target) return;
+          var offset = 90;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
